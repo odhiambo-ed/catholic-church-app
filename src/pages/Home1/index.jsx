@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Header from "components/Header";
-import { Img, Text, Button, Line, List } from "components";
+import { Img, Text, Button, List } from "components";
 import HomeFooter from "components/HomeFooter";
 
 const Home1Page = () => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    let data = Romcal.calendarFor(new Date().getFullYear());
+    const today = new Date();
+    const year = today.getUTCFullYear();
+    const month = String(today.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(today.getUTCDate()).padStart(2, "0");
+    const dateStr = `${year}-${month}-${day}T00:00:00.000Z`;
+    let filt = data.filter((item) => item.date === dateStr);
+    setData(filt[0]);
+  }, []);
   return (
     <>
       <div className="bg-white_A700 flex flex-col font-robotocondensed items-center justify-start mx-auto w-full">
@@ -22,34 +34,51 @@ const Home1Page = () => {
                   className="font-bold text-left text-white_A700 uppercase w-auto"
                   as="h6"
                   variant="h6"
+                  style={{
+                    color: data?.data?.meta?.liturgicalColor?.value,
+                  }}
                 >
-                  Welcome to our CHURCH
+                  {data?.data?.season?.key}
+                </Text>
+                <Text
+                  className="font-bold text-left text-white_A700 uppercase w-auto"
+                  as="h6"
+                  variant="h6"
+                  style={{
+                    color: data?.data?.meta?.liturgicalColor?.value,
+                  }}
+                >
+                  {new Date(data?.date).toDateString()}
+                </Text>
+                <Text
+                  className="font-bold text-left text-white_A700 uppercase w-auto"
+                  as="h6"
+                  variant="h6"
+                  style={{
+                    color: data?.data?.meta?.liturgicalColor?.value,
+                  }}
+                >
+                  Week: {data?.data?.calendar?.week}
+                </Text>
+                <Text
+                  className="font-bold text-left text-white_A700 uppercase w-auto"
+                  as="h6"
+                  variant="h6"
+                  style={{
+                    color: data?.data?.meta?.liturgicalColor?.value,
+                  }}
+                >
+                  Day: {data?.data?.calendar?.day}
                 </Text>
                 <Text
                   className="leading-[82.00px] text-left text-white_A700 tracking-[-0.64px] uppercase w-full"
                   as="h1"
                   variant="h1"
+                  style={{
+                    color: data?.data?.meta?.liturgicalColor?.value,
+                  }}
                 >
-                  Become a part of our community
-                </Text>
-              </div>
-              <Button
-                className="cursor-pointer font-normal min-w-[214px] mt-8 not-italic text-base text-center text-gray_900_01 uppercase w-auto"
-                shape="RoundedBorder12"
-                size="md"
-                variant="FillOrange100"
-              >
-                Learn more
-              </Button>
-              <div className="flex flex-row gap-3 items-start justify-start mt-16 w-[58%] md:w-full">
-                <Line className="bg-orange_100 h-0.5 mb-[34px] mt-3 rotate-[180deg] w-[6%]" />
-                <Text
-                  className="font-normal leading-[24.00px] not-italic text-left text-white_A700 w-[92%] sm:w-full"
-                  as="h6"
-                  variant="h6"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do.
+                  {data?.name}
                 </Text>
               </div>
             </div>

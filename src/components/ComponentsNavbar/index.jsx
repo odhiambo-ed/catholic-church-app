@@ -36,7 +36,7 @@ const ComponentsNavbar = (props) => {
               {props?.sermon}
             </Text>
             <Text
-              className="font-normal font-robotocondensed ml-12 sm:ml-[0] not-italic text-left text-white_A700_ab uppercase w-auto"
+              className="font-normal cursor-pointer font-robotocondensed ml-12 sm:ml-[0] not-italic text-left text-white_A700_ab uppercase w-auto"
               as="h6"
               variant="h6"
             >
