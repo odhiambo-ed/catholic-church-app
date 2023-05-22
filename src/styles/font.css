@@ -1,0 +1,6 @@
+
+ @font-face { font-display: swap; font-style : bold; src: url("assets/fonts/RobotoCondensedBold.ttf"); font-family : "Roboto Condensed"; font-weight : 700;  }
+ @font-face { font-display: swap; font-style : bold; src: url("assets/fonts/SenBold.ttf"); font-family : "Sen"; font-weight : 700;  }
+ @font-face { font-display: swap; font-style : normal; src: url("assets/fonts/RobotoCondensedRegular.ttf"); font-family : "Roboto Condensed"; font-weight : 400;  }
+ @font-face { font-display: swap; font-style : normal; src: url("assets/fonts/RobotoRegular.ttf"); font-family : "Roboto"; font-weight : 400;  }
+ @font-face { font-display: swap; font-style : bold; src: url("assets/fonts/RobotoMedium.ttf"); font-family : "Roboto"; font-weight : 500;  }
